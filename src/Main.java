@@ -43,7 +43,7 @@ public class Main {
                     showTasks(tasks);
 
                     System.out.println("Which task number do you want to remove?");
-                    int index = scn.nextInt();
+                    int index = scn.nextInt() - 1;
 
                     if (index >= 0 && index < tasks.size()) {
                         tasks.remove(index);
@@ -63,7 +63,7 @@ public class Main {
                     showTasks(tasks);
 
                     System.out.println("Enter the task number you want to update:");
-                    int indexUpdate = scn.nextInt();
+                    int indexUpdate = scn.nextInt() - 1;
 
                     if (indexUpdate >= 0 && indexUpdate < tasks.size()) {
 
@@ -104,7 +104,7 @@ public class Main {
         } else {
             System.out.println("===Tasks===");
             for (int i = 0; i < tasks.size(); i++) {
-                System.out.println(i + ". " + tasks.get(i));
+                System.out.println((i + 1) + ". " + tasks.get(i));
             }
         }
     }
