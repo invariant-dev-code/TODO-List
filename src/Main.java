@@ -31,75 +31,57 @@ public class Main {
                     break;
 
                 case 2:
-                    if (tasks.isEmpty()) {
-                        System.out.println("Task list is empty.");
-                    } else {
-                        System.out.println("=== Tasks ===");
-
-                        for (int i = 0; i < tasks.size(); i++) {
-                            System.out.println(i + ". " + tasks.get(i));
-                        }
-                    }
+                    showTasks(tasks);
                     break;
 
                 case 3:
                     if (tasks.isEmpty()) {
                         System.out.println("Task list is empty.");
                         break;
-                    } else {
-
-                        System.out.println("=== Tasks ===");
-
-                        for (int i = 0; i < tasks.size(); i++) {
-                            System.out.println(i + ". " + tasks.get(i));
-                        }
-
-                        System.out.println("Which task number do you want to remove?");
-                        int index = scn.nextInt();
-
-                        if (index >= 0 && index < tasks.size()) {
-                            tasks.remove(index);
-                            System.out.println("Task removed.");
-                        } else {
-                            System.out.println("Incorrect choice.");
-                        }
-
-                        break;
                     }
+
+                    showTasks(tasks);
+
+                    System.out.println("Which task number do you want to remove?");
+                    int index = scn.nextInt();
+
+                    if (index >= 0 && index < tasks.size()) {
+                        tasks.remove(index);
+                        System.out.println("Task removed.");
+                    } else {
+                        System.out.println("Incorrect choice.");
+                    }
+
+                    break;
 
                 case 4:
                     if (tasks.isEmpty()) {
                         System.out.println("Task list is empty.");
                         break;
-                    } else {
-
-                        System.out.println("=== Tasks ===");
-
-                        for (int i = 0; i < tasks.size(); i++) {
-                            System.out.println(i + ". " + tasks.get(i));
-                        }
-
-                        System.out.println("Enter the task number you want to update:");
-                        int index = scn.nextInt();
-
-                        if (index >= 0 && index < tasks.size()) {
-
-                            System.out.println("Task found: " + tasks.get(index));
-
-                            System.out.println("Enter the new task:");
-                            scn.nextLine();
-
-                            String newTask = scn.nextLine();
-                            tasks.set(index, newTask);
-
-                            System.out.println("Task updated.");
-
-                        } else {
-                            System.out.println("Incorrect choice.");
-                        }
-
-                        break;
                     }
+
+                    showTasks(tasks);
+
+                    System.out.println("Enter the task number you want to update:");
+                    int indexUpdate = scn.nextInt();
+
+                    if (indexUpdate >= 0 && indexUpdate < tasks.size()) {
+
+                        System.out.println("Task found: " + tasks.get(indexUpdate));
+
+                        System.out.println("Enter the new task:");
+                        scn.nextLine();
+
+                        String newTask = scn.nextLine();
+                        tasks.set(indexUpdate, newTask);
+
+                        System.out.println("Task updated.");
+
+                    } else {
+                        System.out.println("Incorrect choice.");
+                    }
+
+                    break;
 
                 case 5:
                     System.out.println("Program exited.");
@@ -113,5 +95,17 @@ public class Main {
 
         scn.close();
 
+    }
+
+    public static void showTasks(ArrayList<String> tasks) {
+        if (tasks.isEmpty()) {
+            System.out.println("Task list is empty.");
+            return;
+        } else {
+            System.out.println("===Tasks===");
+            for (int i = 0; i < tasks.size(); i++) {
+                System.out.println(i + ". " + tasks.get(i));
+            }
+        }
     }
 }
